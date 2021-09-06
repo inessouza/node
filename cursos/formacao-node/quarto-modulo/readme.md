@@ -54,6 +54,6 @@
 
 -- Atualizar um dado do banco:
 
-``PDATE nome-da-tabela SET coluna = "algumdadoespecifico" WHERE coluna = "dadoatualizado";``
+``UPDATE nome-da-tabela SET coluna = "algumdadoespecifico" WHERE coluna = "dadoatualizado";``
 
 (O UPDATE sempre deve ser usado com WHERE, jamais deve ser usado sozinho)
