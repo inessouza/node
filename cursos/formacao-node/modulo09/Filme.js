@@ -13,6 +13,7 @@ class Filme {
 	}
 
 	Pausar() {
+		
 		console.log("Pausado ||")
 	}
 
