@@ -34,13 +34,13 @@ var db = {
 			id: 1,
 			name: "Inês Souza",
 			email: "inessouzasp@gmail.com",
-			senha: "nodejs<3"
+			password: "nodejs<3"
 		},
 		{
 			id: 2,
 			name: "Ana Souza",
 			email: "anasouzasp@gmail.com",
-			senha: "java123"
+			password: "java123"
 		}
 	]
 }
@@ -122,6 +122,31 @@ app.put("/game/:id", (req, res) => {
 			res.sendStatus(404)
 		}
 	}	
+})
+
+app.post("/auth", (req, res) => {
+	var { email, password } = req.body;
+
+	if (email != undefined) {
+		db.users.find(u => u.email == email)
+
+		if (user != undefined) {
+			if (user.password == password) {
+				res.status = 200;
+				res.json({ token: "Token Falso" })
+			} else {
+				res.status = 401;
+				res.json({ err: "Credenciais Inválidas!" })
+			}
+
+		} else {
+			res.status = 404;
+			res.json({ err: "E-mail não existe na base de dados!" })
+		}
+	} else {
+		res.status = 400
+		res.json({ err: "E-mail inválido!" })
+	}
 })
 
 app.listen(3000, () => {
