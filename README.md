@@ -8,6 +8,8 @@ Node.js é uma tecnologia usada para executar código JavaScript fora do navegad
 microsserviços. Isso é possível graças a união do ambiente de execução de JavaScript fornecido pelo próprio Node.js e o motor de interpretação e execução de JavaScript 
 presente no Google Chrome, chamado de V8.
 
+<hr/>
+
 #### Fonte: 
 <ul> 
   <li>
