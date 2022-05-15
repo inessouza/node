@@ -50,7 +50,7 @@ Exemplo de Resposta:
 Este endpoint é responsável por fazer o processo de login.
 
 #### Parâmetros
-email: E-mail do usuário cadastrado no sistema.
+email: E-mail do usuário cadastrado no sistema.<br>
 password: Senha do usuário cadastrado no sistema.
 
 Exemplo:
