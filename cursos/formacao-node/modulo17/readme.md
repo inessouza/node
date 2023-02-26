@@ -2,4 +2,6 @@
 
 Projeto utilizando a biblioteca FullCalendar.
 
-Repositório do projeto:
+Repositório do projeto: <a href="https://github.com/inessouza/projeto-agendamento">Projeto Agendamento</a>
+
+
