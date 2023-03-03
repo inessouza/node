@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Módulo Vue JS</h1>
-    <ClienteVue :cliente="clientAnthony"/>
+    <ClienteVue :cliente="clientAnthony" :showAge="false"/>
   </div>
 </template>
 
