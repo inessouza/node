@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <h1>Módulo Vue JS</h1>
-    <ClienteVue :cliente="clientAnthony" :showAge="false"/>
+    <div v-for="cliente in clientes" :key="cliente.id">
+      <ClienteVue :cliente="cliente"/>
+    </div>
   </div>
 </template>
 
@@ -16,7 +18,33 @@ export default {
         nome: "Anthony Vieira de Souza",
         email: "anthony@gmail.com",
         idade: "23"
-      }
+      },
+      clientes: [
+        {
+          id: 1,
+          nome: "Fulano Um",
+          email: "fulanoum@gmail.com",
+          idade: 101
+        },
+        {
+          id: 2,
+          nome: "Fulano Dois",
+          email: "fulanodois@gmail.com",
+          idade: 102
+        },
+        {
+          id: 3,
+          nome: "Fulano Três",
+          email: "fulanotres@gmail.com",
+          idade: 103
+        },
+        {
+          id: 4,
+          nome: "Fulano Quatro",
+          email: "fulanoquatro@gmail.com",
+          idade: 104
+        },
+      ]
     }
   },
   components: {
