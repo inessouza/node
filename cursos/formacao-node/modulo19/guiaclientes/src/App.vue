@@ -1,6 +1,12 @@
 <template>
   <div id="app">
     <h1>Módulo Vue JS</h1>
+    <h3>Cadastro:</h3>
+    <input type="text" placeholder="Nome" v-model="nameField"><br>
+    <small id="error" v-if="valid">Nome Inválido, tente novamente!</small><br>
+    <input type="email" placeholder="Email" v-model="emailField"><br><br>
+    <input type="number" placeholder="Idade" v-model="ageField"><br><br>
+    <button @click="registerUser">Cadastrar</button>
     <div v-for="(cliente, index) in clientes" :key="cliente.id">
       <h4>{{ index + 1 }}</h4>
       <ClienteVue :cliente="cliente"/>
@@ -14,46 +20,65 @@ export default {
   name: 'App',
   data() {
     return {
+      nameField: "",
+      emailField: "",
+      ageField: 0,
+      valid: false,
       nameComplete: "Anthony Vieira de Souza",
       clientAnthony: {
-        nome: "Anthony Vieira de Souza",
+        name: "Anthony Vieira de Souza",
         email: "anthony@gmail.com",
-        idade: "23"
+        age: "23"
       },
       clientes: [
         {
           id: 1,
-          nome: "Fulano Um",
+          name: "Fulano Um",
           email: "fulanoum@gmail.com",
-          idade: 101
+          age: 101
         },
         {
           id: 2,
-          nome: "Fulano Dois",
+          name: "Fulano Dois",
           email: "fulanodois@gmail.com",
-          idade: 102
+          age: 102
         },
         {
           id: 3,
-          nome: "Fulano Três",
+          name: "Fulano Três",
           email: "fulanotres@gmail.com",
-          idade: 103
+          age: 103
         },
         {
           id: 4,
-          nome: "Fulano Quatro",
+          name: "Fulano Quatro",
           email: "fulanoquatro@gmail.com",
-          idade: 104
+          age: 104
         },
       ]
     }
   },
   components: {
     ClienteVue
+  },
+  methods: {
+    registerUser: function() {
+      if (this.nameField === "" || this.nameField === " " || this.nameField.length < 3) {
+        this.valid = true
+      } else {
+        this.clientes.push({ name: this.nameField, email: this.emailField, age: this.ageField, id: Date.now() })
+        this.nameField = ""
+        this.emailField = ""
+        this.ageField = ""
+      }
+    }
   }
 }
 </script>
 
 <style>
+  #error {
+    color: red;
+  }
 
 </style>

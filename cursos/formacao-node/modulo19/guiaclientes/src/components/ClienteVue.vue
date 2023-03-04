@@ -1,8 +1,8 @@
 <template>
     <div :class="{'cliente': !isPremium, 'cliente-premium': isPremium}">
-        <h4>Nome: {{ cliente.nome }}</h4>
+        <h4>Nome: {{ cliente.name }}</h4>
         <p>Email: {{ cliente.email }}</p>
-        <p v-if="showAge === true">Idade: {{ cliente.idade }}</p>
+        <p v-if="showAge === true">Idade: {{ cliente.age }}</p>
         <p v-else>Idade do usuário é confidencial.</p>
         <button @click="changeColor($event)">Mudar cor!</button>
         <hr>
