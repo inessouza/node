@@ -1,10 +1,11 @@
 <template>
-    <div id="cliente">
+    <div :class="{'cliente': !isPremium, 'cliente-premium': isPremium}">
         <h4>Nome: {{ cliente.nome }}</h4>
-        <hr>
         <p>Email: {{ cliente.email }}</p>
         <p v-if="showAge === true">Idade: {{ cliente.idade }}</p>
         <p v-else>Idade do usuário é confidencial.</p>
+        <button @click="changeColor($event)">Mudar cor!</button>
+        <hr>
     </div>
 </template>
 
@@ -14,17 +15,24 @@ export default {
     name: 'ClienteVue',
     data() {
         return {
+            isPremium: false
         }
     },
     props: {
         cliente: Object,
         showAge: Boolean
+    },
+    methods: {
+        changeColor: function($event) {
+            console.log($event)
+            this.isPremium = !this.isPremium
+        }
     }
 }
 </script>
 
 <style scooped>
-    #cliente{
+    .cliente {
         background-color: #D3D3D3;
         max-width: 600px;
         height: 200px;

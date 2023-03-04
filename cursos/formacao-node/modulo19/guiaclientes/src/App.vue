@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <h1>Módulo Vue JS</h1>
-    <div v-for="cliente in clientes" :key="cliente.id">
+    <div v-for="(cliente, index) in clientes" :key="cliente.id">
+      <h4>{{ index + 1 }}</h4>
       <ClienteVue :cliente="cliente"/>
     </div>
   </div>
