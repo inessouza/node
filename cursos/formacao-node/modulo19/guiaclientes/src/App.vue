@@ -9,7 +9,7 @@
     <button @click="registerUser">Cadastrar</button>
     <div v-for="(cliente, index) in clientes" :key="cliente.id">
       <h4>{{ index + 1 }}</h4>
-      <ClienteVue :cliente="cliente"/>
+      <ClienteVue :cliente="cliente" @meDelete="deleteUser($event)"/>
     </div>
   </div>
 </template>
@@ -71,6 +71,10 @@ export default {
         this.emailField = ""
         this.ageField = ""
       }
+    },
+    deleteUser: function($event) {
+      console.log("Recebendo Evento")
+      console.log($event)
     }
   }
 }
