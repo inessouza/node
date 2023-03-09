@@ -73,8 +73,9 @@ export default {
       }
     },
     deleteUser: function($event) {
-      console.log("Recebendo Evento")
-      console.log($event)
+      var id = $event.idClient
+      var newArray = this.clientes.filter(cliente => cliente.id != id)
+      this.clientes = newArray
     }
   }
 }

@@ -1,11 +1,12 @@
 <template>
     <div :class="{'cliente': !isPremium, 'cliente-premium': isPremium}">
         <h4>Nome: {{ cliente.name }}</h4>
-        <p>Email: {{ cliente.email }}</p>
+        <p>Email: {{ proccessEmail }}</p>
         <p v-if="showAge === true">Idade: {{ cliente.age }}</p>
         <p v-else>Idade do usuário é confidencial.</p>
         <button @click="changeColor($event)">Mudar cor!</button>
         <button @click="emitDeleteEvent">Deletar</button>
+        <h4>Id Especial: {{ idSpecial }}</h4>
         <hr>
     </div>
 </template>
@@ -30,7 +31,15 @@ export default {
         },
         emitDeleteEvent: function() {
             console.log("Emitindo do Filho")
-            this.$emit("meDelete")
+            this.$emit("meDelete", {course: "Formação Node", inPromotion: true, component: this})
+        }
+    },
+    computed: {
+        proccessEmail() {
+            return this.cliente.email.toUpperCase()
+        },
+        idSpecial: function() {
+            return (this.cliente.email + this.cliente.name + this.cliente.id).toUpperCase()
         }
     }
 }
