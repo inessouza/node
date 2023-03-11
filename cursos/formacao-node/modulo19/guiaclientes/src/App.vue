@@ -6,8 +6,12 @@
     <small id="error" v-if="valid">Nome Inválido, tente novamente!</small><br>
     <input type="email" placeholder="Email" v-model="emailField"><br><br>
     <input type="number" placeholder="Idade" v-model="ageField"><br><br>
-    <button @click="registerUser">Cadastrar</button>
-    <div v-for="(cliente, index) in clientes" :key="cliente.id">
+    <div class="buttons">
+      <button class="button is-primary" @click="registerUser">
+        Cadastrar
+      </button>
+    </div>
+    <div v-for="(cliente, index) in orderClients" :key="cliente.id">
       <h4>{{ index + 1 }}</h4>
       <ClienteVue :cliente="cliente" @meDelete="deleteUser($event)"/>
     </div>
@@ -15,7 +19,9 @@
 </template>
 
 <script>
+import _ from 'lodash'
 import ClienteVue from './components/ClienteVue'
+
 export default {
   name: 'App',
   data() {
@@ -77,7 +83,13 @@ export default {
       var newArray = this.clientes.filter(cliente => cliente.id != id)
       this.clientes = newArray
     }
+  },
+  computed: {
+    orderClients: function() {
+      return _.orderBy(this.clientes, ['name'], ['asc'])
+    }
   }
+
 }
 </script>
 
